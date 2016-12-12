@@ -1,20 +1,15 @@
 {
-    "name": "amanjain1992/elastic-search-sql-php",
-    "type": "library",
-    "description": "Elasticsearch result manipulation using php",
-    "keywords": [
-        "Elasticsearch",
-        "php",
-        "manipulation"
-    ],
-    "homepage": "https://github.com/amanjain1992/elastic-search-sql-php",
+    "name": "aman.j/elastic-search-sql-php",
+    "description": "elastic search package for formatting with php",
+    "type": "composer-plugin",
     "license": "MIT",
     "authors": [
         {
-            "name": "Aman Jain",
+            "name": "Aman jain",
             "email": "amanjain1992@gmail.com"
         }
     ],
+    "require": {},
     "autoload": {
         "psr-0": { "Elasticsearch\\Php\\" : "src/" }
     }
