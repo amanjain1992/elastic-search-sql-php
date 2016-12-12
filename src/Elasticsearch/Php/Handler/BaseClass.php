@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file is part of the Elasticsearch application.
+ *
+ * @license http://opensource.org/licenses/MIT
+ *
+ * @link https://github.com/amanjain1992/elastic-search-sql-php
+ *
+ * @version 0.0.1
+ */
 
 namespace Elasticsearch\Php\Handler;
 
@@ -26,7 +35,7 @@ class BaseClass
     *  Note, it uses a union merge, not the
     *  php's Array Merge to merge them.
    **/
-    private function JqExtend($Defaults, $Opt ) {
+    public function JqExtend($Defaults, $Opt ) {
            //For each Option, their Key => Value
            foreach ( $Opt as $k => $v ){
                if ( !array_key_exists( $k, $Defaults ))

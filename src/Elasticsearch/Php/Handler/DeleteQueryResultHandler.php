@@ -1,12 +1,25 @@
 <?php
+/**
+ * This file is part of the Elasticsearch application.
+ *
+ * @license http://opensource.org/licenses/MIT
+ *
+ * @link https://github.com/amanjain1992/elastic-search-sql-php
+ *
+ * @version 0.0.1
+ */
 
 namespace Elasticsearch\Php\Handler;
 
 use Elasticsearch\Php\Handler\BaseClass;
 
 /**
-* 
-*/
+ * Elastic Search Data Modification 
+ * with the help of php
+ * @package Elasticsearch\Php
+ * @author Aman Jain (aman.j@solutionsinfini.com)
+ * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ */
 class DeleteQueryResultHandler extends BaseClass
 {
     

@@ -1,8 +1,23 @@
 <?php
-
+/**
+ * This file is part of the Elasticsearch application.
+ *
+ * @license http://opensource.org/licenses/MIT
+ *
+ * @link https://github.com/amanjain1992/elastic-search-sql-php
+ *
+ * @version 0.0.1
+ */
 namespace Elasticsearch\Php;
 use Elasticsearch\Php\Handler;
 
+/**
+ * Elastic Search Data Modification 
+ * with the help of php
+ * @package Elasticsearch\Php
+ * @author Aman Jain (aman.j@solutionsinfini.com)
+ * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ */
 class ElasticSearchSqlConverter  
 {   
     /**
@@ -31,14 +46,14 @@ class ElasticSearchSqlConverter
             $data = json_decode($data,true);
         }
         if($this->isSearch($data)){
-            return $this->isAggregation($data) ? new AggregationQueryResultHandler($data) : new DefaultQueryResultHandler($data, $isFlat, $showScore, $showType);
+            return $this->isAggregation($data) ? new \Elasticsearch\Php\Handler\AggregationQueryResultHandler($data) : new \Elasticsearch\Php\Handler\DefaultQueryResultHandler($data, $isFlat, $showScore, $showType);
         }
 
         if($this->isDelete($data)){
-            return new DeleteQueryResultHandler($data);
+            return new \Elasticsearch\Php\Handler\DeleteQueryResultHandler($data);
         }
 
-        return new ShowQueryResultHandler($data);
+        return new \Elasticsearch\Php\Handler\ShowQueryResultHandler($data);
     } 
 
     /**
