@@ -1,6 +1,6 @@
 <?php
 
-namespace Elasticsearch\php\Handler;
+namespace Elasticsearch\Php\Handler;
 
 /**
  * Elastic Search converting json object 

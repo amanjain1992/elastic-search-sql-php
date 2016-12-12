@@ -1,6 +1,7 @@
 <?php
 
-namespace Elasticsearch\php;
+namespace Elasticsearch\Php;
+use Elasticsearch\Php\Handler;
 
 class ElasticSearchSqlConverter  
 {   

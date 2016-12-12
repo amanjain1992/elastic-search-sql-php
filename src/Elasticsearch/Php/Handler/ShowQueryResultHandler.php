@@ -2,7 +2,7 @@
 
 namespace Elasticsearch\php\Handler;
 
-use Elasticsearch\php\Handler\BaseClass;
+use Elasticsearch\Php\Handler\BaseClass;
 
 /**
 * 

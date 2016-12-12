@@ -1,8 +1,8 @@
 <?php
 
-namespace Elasticsearch\php\Handler;
+namespace Elasticsearch\Php\Handler;
 
-use Elasticsearch\php\Handler\BaseClass;
+use Elasticsearch\Php\Handler\BaseClass;
 
 /**
 * 
