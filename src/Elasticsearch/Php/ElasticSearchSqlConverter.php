@@ -45,7 +45,7 @@ class ElasticSearchSqlConverter
         if ($this->isJson($data)){
             $data = json_decode($data,true);
         }
-        return new \Elasticsearch\Php\Handler\DeleteQueryResultHandler($data);
+
         if($this->isSearch($data)){
             return $this->isAggregation($data) ? new \Elasticsearch\Php\Handler\AggregationQueryResultHandler($data) : new \Elasticsearch\Php\Handler\DefaultQueryResultHandler($data, $isFlat, $showScore, $showType);
         }
