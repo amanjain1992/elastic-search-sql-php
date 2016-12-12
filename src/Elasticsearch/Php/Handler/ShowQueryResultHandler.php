@@ -9,7 +9,7 @@
  * @version 0.0.1
  */
 
-namespace Elasticsearch\php\Handler;
+namespace Elasticsearch\Php\Handler;
 
 use Elasticsearch\Php\Handler\BaseClass;
 
@@ -31,7 +31,7 @@ class ShowQueryResultHandler extends BaseClass
 
     public function init()
     {
-        $mappingParser = new MappingParser($this->data);
+        $mappingParser = new \Elasticsearch\Php\Handler\MappingParser($this->data);
         $indices = $mappingParser->getIndices();
         $body = [];
         if(count($indices) > 1){

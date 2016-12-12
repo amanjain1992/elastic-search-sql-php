@@ -28,7 +28,7 @@ class DeleteQueryResultHandler extends BaseClass
         $this->head = ["index_deleted_from","shards_successful","shards_failed"];
         $body = [];
         $deleteData = $data["_indices"];
-        foreach($deleteData as $index){
+        foreach($deleteData as $index => $v){
             $deleteStat = [];
             $deleteStat["index_deleted_from"] = $index;
             $shardsData = $deleteData[$index]["_shards"];
