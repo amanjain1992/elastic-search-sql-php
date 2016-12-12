@@ -13,7 +13,7 @@ namespace Elasticsearch\php\Handler;
 class BaseClass
 {
     
-    public function __construct(argument)
+    public function __construct()
     {
     }
     /**

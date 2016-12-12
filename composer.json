@@ -1,17 +1,13 @@
 {
-    "name": "sinfini/omnipay-icici",
+    "name": "amanjain1992/Elasticsearch-Php",
     "type": "library",
-    "description": "Icici (Raven) driver for the Omnipay PHP payment processing library",
+    "description": "Elasticsearch result manipulation using php",
     "keywords": [
-        "gateway",
-        "merchant",
-        "omnipay",
-        "pay",
-        "payment",
-        "purchase",
-        "Icici",
+        "Elasticsearch",
+        "php",
+        "manipulation"
     ],
-    "homepage": "https://github.com/sinfini/omnipay-icici",
+    "homepage": "https://github.com/amanjain1992/elastic-search-sql-php",
     "license": "MIT",
     "authors": [
         {

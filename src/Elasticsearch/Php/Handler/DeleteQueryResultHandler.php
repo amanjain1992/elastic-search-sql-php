@@ -10,7 +10,7 @@ use Elasticsearch\php\Handler\BaseClass;
 class DeleteQueryResultHandler extends BaseClass
 {
     
-    public function __construct(argument)
+    public function __construct()
     {
         $this->head = ["index_deleted_from","shards_successful","shards_failed"];
         $body = [];

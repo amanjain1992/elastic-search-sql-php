@@ -33,7 +33,7 @@ class MappingParser extends BaseClass
         return $indexToTypeToFields;    
     }
 
-    public function getFieldsRecursive($fields, $fieldsFlatten $prefix){
+    public function getFieldsRecursive($fields, $fieldsFlatten, $prefix){
         foreach($fields as $field){
             $fieldMapping = $fields[$field];
             if(array_key_exists("type", $fieldMapping)){

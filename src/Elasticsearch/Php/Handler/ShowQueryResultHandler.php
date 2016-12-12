@@ -25,10 +25,10 @@ class ShowQueryResultHandler extends BaseClass
             $this->head = ["index","types"];
             foreach($indices as $indexOfIndex){
                 $indexToTypes = [];
-                $index = $indices[$indexOfIndex]
+                $index = $indices[$indexOfIndex];
                 $indexToTypes["index"] = $index;
                 $indexToTypes["types"] = $mappingParser->getTypes($index);
-                $body[ = $indexToTypes;
+                $body[] = $indexToTypes;
             }
         }
         else {

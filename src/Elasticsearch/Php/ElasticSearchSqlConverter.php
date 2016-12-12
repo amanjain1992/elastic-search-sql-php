@@ -30,7 +30,7 @@ class ElasticSearchSqlConverter
             $data = json_decode($data,true);
         }
         if($this->isSearch($data)){
-            return $this->isAggregation($data) ? new AggregationQueryResultHandler($data) : new DefaultQueryResultHandler($data, $isFlat, $showScore, $showType)
+            return $this->isAggregation($data) ? new AggregationQueryResultHandler($data) : new DefaultQueryResultHandler($data, $isFlat, $showScore, $showType);
         }
 
         if($this->isDelete($data)){

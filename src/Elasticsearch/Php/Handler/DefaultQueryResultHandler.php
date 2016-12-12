@@ -25,10 +25,10 @@ class DefaultQueryResultHandler extends BaseClass
     {
         $hits = $this->data['hits']['hits'];
         if (count($hits) > 0){
-            $scheme = []
+            $scheme = [];
 
             for($i=0; $i<count($hits); $i++) {
-                $hit = $hits[$i]
+                $hit = $hits[$i];
                 $header = $this->JqExtend($hit['_source'],$hit['fields']);
                 if($this->isFlat){
                     $this->findKeysRecursive($scheme,$header,"");
@@ -38,7 +38,7 @@ class DefaultQueryResultHandler extends BaseClass
                     foreach($header as $key) {
 
                         if(strrpos($scheme, $key)) {
-                            $scheme[] = $key
+                            $scheme[] = $key;
                         }
                     }       
                 }
@@ -59,7 +59,7 @@ class DefaultQueryResultHandler extends BaseClass
     public function findKeysRecursive ($scheme, $keys, $prefix) {
         foreach($keys as $key){
             if(is_array($keys[$key])) {
-                $this->findKeysRecursive( $scheme, $keys[$key], $prefix+$key+".")
+                $this->findKeysRecursive( $scheme, $keys[$key], $prefix+$key+".");
             } else {
                 if(strrpos($scheme, $prefix+$key) == -1){
                     $scheme[] = $prefix+$key;
@@ -86,7 +86,7 @@ class DefaultQueryResultHandler extends BaseClass
         for($i = 0; $i < count($hits); $i++) {
             $row = $hits[$i]['_source'];
             if(array_key_exists("fields" , $hits[$i])){
-                $this->addFieldsToRow($row,$hits[$i])
+                $this->addFieldsToRow($row,$hits[$i]);
             }
             if($this->isFlat){
                 $row = $this->flatRow($this->head, $row);

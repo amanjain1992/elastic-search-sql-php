@@ -19,7 +19,7 @@ class AggregationQueryResultHandler extends BaseClass
     }
 
     public function removeNestedAndFilters ($aggs) {
-        foreach($aggs as $field)
+        foreach($aggs as $field => $value)
         {
             if ($this->endsWith($field,"@NESTED") || $this->endsWith($field,"@FILTER") || $this->endsWith($field,"@NESTED_REVERSED") || $this->endsWith($field,"@CHILDREN")){
                 unset($aggs[$field]["doc_count"]); 
@@ -47,7 +47,7 @@ class AggregationQueryResultHandler extends BaseClass
     }
 
     public function getRows($bucketName, $bucket, $additionalColumns) {
-        $rows = []
+        $rows = [];
 
         $subBuckets = $this->getSubBuckets($bucket);
         if(count($subBuckets) > 0) {
@@ -55,16 +55,16 @@ class AggregationQueryResultHandler extends BaseClass
                 $subBucketName = $subBuckets[$i]["bucketName"];
                 $subBucket = $subBuckets[$i]["bucket"];
 
-                $newAdditionalColumns = {};
+                $newAdditionalColumns = [];
                 // bucket without parents.
                 if(!empty($bucketName)) {
                     $newColumn = [];
-                    $newColumn[$bucketName] = $bucket[$key];
+                    $newColumn[$bucketName] = $bucket['key'];
                     $newAdditionalColumns = $this->JqExtend($newColumn, $additionalColumns);
                 }
 
-                $newRows = $this->getRows($subBucketName, $subBucket, $newAdditionalColumns)
-                array_merge($rows, $newRows);
+                $newRows = $this->getRows($subBucketName, $subBucket, $newAdditionalColumns);
+                $rows =  array_merge($rows, $newRows);
             }
         } else {
             $obj = $additionalColumns;
@@ -73,17 +73,17 @@ class AggregationQueryResultHandler extends BaseClass
                     $obj[$bucketName] = $bucket["key_as_string"];
                 }
                 else {
-                    $obj[$bucketName] = $bucket[$key];
+                    $obj[$bucketName] = $bucket['key'];
                 }
             }
             
 
-            foreach($bucket as $field) {
+            foreach($bucket as $field => $value) {
 
-                $bucketValue = $bucket[$field]
+                $bucketValue = $bucket[$field];
                 if(!empty($bucketValue['buckets'])){
                     $newRows = $this->getRows($subBucketName, $bucketValue, $newAdditionalColumns);
-                    array_merge($rows, $newRows);
+                    $rows = array_merge($rows, $newRows);
                     continue;
                 }
                 if(!empty($bucketValue['value'])){
@@ -108,8 +108,8 @@ class AggregationQueryResultHandler extends BaseClass
     public function fillFieldsForSpecificAggregation($obj, $value, $field)
     {   
 
-        foreach($value as $key){
-            if(key == "values"){
+        foreach($value as $key => $v){
+            if($key == "values"){
                 $this->fillFieldsForSpecificAggregation($obj, $value[$key], $field);
             }
             else {
@@ -121,20 +121,22 @@ class AggregationQueryResultHandler extends BaseClass
 
     public function getSubBuckets($bucket) {
         $subBuckets = [];
-        foreach($bucket as $field) {
-            $buckets = $bucket[$field]['buckets'];
-            if(!empty($buckets)) {
-                for($i = 0; $i < count($buckets); $i++) {
-                    $subBuckets[] = ["bucketName" =>  $field, "bucket" => $buckets[$i]];
+        foreach($bucket as $field => $value) {
+            if (!empty($value['buckets'])) {
+                $buckets = $value['buckets'];
+                if(!empty($buckets)) {
+                    for($i = 0; $i < count($buckets); $i++) {
+                        $subBuckets[] = ["bucketName" =>  $field, "bucket" => $buckets[$i]];
+                    }
                 }
-            }
-            else {
-                $innerAgg = $bucket[$field];
-                foreach ($innerAgg as $innerField){
-                    if(is_array($innerAgg[$innerField])){
-                        $innerBuckets = $this->getSubBuckets($innerAgg[$innerField]);
-                        array_merge($subBuckets,$innerBuckets);
-                    }    
+                else {
+                    $innerAgg = $value;
+                    foreach ($innerAgg as $innerField => $v){
+                        if(is_array($innerAgg[$innerField])){
+                            $innerBuckets = $this->getSubBuckets($innerAgg[$innerField]);
+                            $subBuckets = array_merge($subBuckets,$innerBuckets);
+                        }    
+                    }
                 }
             }
         }
@@ -145,9 +147,9 @@ class AggregationQueryResultHandler extends BaseClass
     public function getHead() {
         $head = [];
         for($i = 0; $i < count($this->flattenBuckets); $i++) {
-            $keys = array_keys($this->flattenBuckets[$i])
+            $keys = array_keys($this->flattenBuckets[$i]);
             for($j = 0; $j < count($keys); $j++) {
-                if(!in_array($keys$[$j], $head)) {
+                if(!in_array($keys[$j], $head)) {
                     $head[] = $keys[$j];
                 }
             }
@@ -156,7 +158,7 @@ class AggregationQueryResultHandler extends BaseClass
     }
 
     public function getBody() {
-        return $this->flattenBuckets
+        return $this->flattenBuckets;
     }
 
     public function getTotal() {
