@@ -1,5 +1,6 @@
 {
     "name": "aman.j/elastic-search-sql-php",
+    "version": "dev-master",
     "description": "elastic search package for formatting with php",
     "type": "composer-plugin",
     "license": "MIT",
