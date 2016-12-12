@@ -1,5 +1,5 @@
 {
-    "name": "amanjain1992/Elasticsearch-Php",
+    "name": "amanjain1992/elastic-search-sql-php",
     "type": "library",
     "description": "Elasticsearch result manipulation using php",
     "keywords": [
