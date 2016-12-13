@@ -21,7 +21,7 @@ And run composer to update your dependencies:
 ## Basic Usage
 
 It helps to return elastic search result into array format using php
-
+```php
 include ('vendor/autoload.php');
 
 use  Elasticsearch\Php;
@@ -29,3 +29,4 @@ use  Elasticsearch\Php;
 $map = new \Elasticsearch\Php\ElasticSearchSqlConverter();
 $jsonData = <Query output data from elastic search>;
 $handler  = $map->create($jsonData, 1, 1, 1);
+```

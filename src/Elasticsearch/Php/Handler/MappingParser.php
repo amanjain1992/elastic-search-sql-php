@@ -29,9 +29,9 @@ class MappingParser extends BaseClass
         $this->mapping = $parsedMapping;
     }
 
-    public function parseMapping($mapping){
+    public function parseMapping($data){
         $indexToTypeToFields = [];
-        foreach($mapping as $index => $v){
+        foreach($mapping as $index){
             $types = $mapping[$index]["mappings"];
             $typeToFields = [];
             foreach($types as $type){

@@ -36,14 +36,19 @@ class BaseClass
     *  php's Array Merge to merge them.
    **/
     public function JqExtend($Defaults, $Opt ) {
-           //For each Option, their Key => Value
-           foreach ( $Opt as $k => $v ){
-               if ( !array_key_exists( $k, $Defaults ))
-                   unset( $Opt[$k] );
-           }
+        if (!empty($Opt)){
+          //For each Option, their Key => Value
+             foreach ( $Opt as $k => $v ){
+                 if ( !array_key_exists( $k, $Defaults ))
+                     unset( $Opt[$k] );
+             }
 
-           $return = $Opt + $Defaults;
-           //Return the stripped Array
-           return $return;
+             $return = $Opt + $Defaults;
+             //Return the stripped Array
+        } else {
+           $return = $Defaults;
+        }
+           
+        return $return;
    }
 }

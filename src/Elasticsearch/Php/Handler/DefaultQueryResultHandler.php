@@ -14,7 +14,7 @@ namespace Elasticsearch\Php\Handler;
 use Elasticsearch\Php\Handler\BaseClass;
 
 /**
- * Elastic Search Data Modification 
+ * Elastic Search Data Modification
  * with the help of php
  * @package Elasticsearch\Php
  * @author Aman Jain (aman.j@solutionsinfini.com)
@@ -48,9 +48,8 @@ class DefaultQueryResultHandler extends BaseClass
                 }
 
                 else {
-                    foreach($header as $key) {
-
-                        if(strrpos($scheme, $key)) {
+                    foreach($header as $key => $v) {
+                        if(in_array( $key, $scheme)) {
                             $scheme[] = $key;
                         }
                     }       
@@ -70,11 +69,11 @@ class DefaultQueryResultHandler extends BaseClass
     }
 
     public function findKeysRecursive ($scheme, $keys, $prefix) {
-        foreach($keys as $key){
+        foreach($keys as $key => $v){
             if(is_array($keys[$key])) {
                 $this->findKeysRecursive( $scheme, $keys[$key], $prefix+$key+".");
             } else {
-                if(strrpos($scheme, $prefix+$key) == -1){
+                if(in_array($prefix+$key, $scheme)){
                     $scheme[] = $prefix+$key;
                 }
             }
@@ -116,7 +115,7 @@ class DefaultQueryResultHandler extends BaseClass
     }
     
     public function addFieldsToRow ($row, $hit) {
-        foreach($hit['fields'] as $field){
+        foreach($hit['fields'] as $field => $v){
             $fieldValue = $hit['fields'][$field];
             if( is_array($fieldValue)){
                 if(count($fieldValue) > 1)
