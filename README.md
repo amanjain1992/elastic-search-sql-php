@@ -2,7 +2,7 @@ elasticsearch-integrated -php
 
 ## Installation
 
-Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply add it
+elasticsearch-integrated -php is installed via [Composer](http://getcomposer.org/). To install, simply add it
 to your `composer.json` file:
 
 ```json
