@@ -14,8 +14,10 @@ namespace Elasticsearch\Php\Handler;
 use Elasticsearch\Php\Handler\BaseClass;
 
 /**
- * Elastic Search Data Modification 
- * with the help of php
+ *  AggregationQueryResultHandler object 
+ *  Handle the query result,
+ *  in case of Aggregation query
+ *  (SQL group by)
  * @package Elasticsearch\Php
  * @author Aman Jain (aman.j@solutionsinfini.com)
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
@@ -48,6 +50,9 @@ class AggregationQueryResultHandler extends BaseClass
         return $aggs;
     }
 
+    /**
+    * Function to check if haystack ends with needle
+    **/
     public function endsWith($haystack, $needle)
     {
         $length = strlen($needle);

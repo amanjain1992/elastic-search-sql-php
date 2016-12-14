@@ -38,7 +38,9 @@ class ElasticSearchSqlConverter
     }
 
     /**
-     * Create Function to format data
+     * Returns the right Result Handler depend
+     *   on the results
+     * @return handler object 
      */
     public function create($data, $isFlat, $showScore, $showType) {
 
@@ -77,6 +79,9 @@ class ElasticSearchSqlConverter
         return array_key_exists('_indices', $data);
     }
 
+    /**
+     * Function to check if data is JSON format.
+     */
     public function isJson($data) {
         json_decode($data);
         return (json_last_error() == JSON_ERROR_NONE);

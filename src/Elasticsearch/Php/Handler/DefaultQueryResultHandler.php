@@ -14,8 +14,10 @@ namespace Elasticsearch\Php\Handler;
 use Elasticsearch\Php\Handler\BaseClass;
 
 /**
- * Elastic Search Data Modification
- * with the help of php
+ *  DefaultQueryResultHandler object 
+ *  Handle the query result,
+ *  in case of regular query
+ *  (Not aggregation)
  * @package Elasticsearch\Php
  * @author Aman Jain (aman.j@solutionsinfini.com)
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License

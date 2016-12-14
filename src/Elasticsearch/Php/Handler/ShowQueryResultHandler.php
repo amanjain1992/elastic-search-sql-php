@@ -14,8 +14,8 @@ namespace Elasticsearch\php\Handler;
 use Elasticsearch\Php\Handler\BaseClass;
 
 /**
- * Elastic Search Data Modification 
- * with the help of php
+ *  ShowQueryResultHandler object
+ *  for showing mapping in some levels (cluster, index and types)
  * @package Elasticsearch\Php
  * @author Aman Jain (aman.j@solutionsinfini.com)
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
