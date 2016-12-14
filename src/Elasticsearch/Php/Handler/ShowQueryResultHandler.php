@@ -36,7 +36,7 @@ class ShowQueryResultHandler extends BaseClass
         $body = [];
         if(count($indices) > 1){
             $this->head = ["index","types"];
-            foreach($indices as $indexOfIndex){
+            foreach($indices as $indexOfIndex => $v){
                 $indexToTypes = [];
                 $index = $indices[$indexOfIndex];
                 $indexToTypes["index"] = $index;
@@ -49,7 +49,7 @@ class ShowQueryResultHandler extends BaseClass
             $types = $mappingParser.getTypes($index);
             if(count(types) > 1) {
                 $this->head = ["type","fields"];
-                foreach($types as $typeIndex){
+                foreach($types as $typeIndex => $ti){
                     $typeToFields = [];
                     $type = $types[$typeIndex];
                     $typeToFields["type"] = $type;
@@ -61,7 +61,7 @@ class ShowQueryResultHandler extends BaseClass
                 $this->head = ["field","type"];
                 $anyFieldContainsMore = false;
                 $fieldsWithMapping = $mappingParser->getFieldsForTypeWithMapping($index,$types[0]);
-                foreach($fieldsWithMapping as $field){
+                foreach($fieldsWithMapping as $field => $fwm){
                     $fieldRow = [];
                     $fieldMapping = $fieldsWithMapping[$field];
                     $fieldRow["field"] = $field;
