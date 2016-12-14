@@ -8,7 +8,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "aman.j/elastic-search-sql-php": "dev-master"
+        "sinfini/elastic-search-sql-php": "dev-master"
     }
 }
 ```
